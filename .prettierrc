@@ -17,6 +17,5 @@
   "useTabs": false,
   "vueIndentScriptAndStyle": false,
   "filepath": "c:\\Users\\biel_\\Desktop\\codes\\ignite-rocketseat\\Chapter 4\\dashgo\\pages\\_app.tsx",
-  "parser": "typescript",
-  "singleAttributePerLine": true
+  "parser": "typescript"
 }
