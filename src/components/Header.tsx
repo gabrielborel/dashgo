@@ -17,18 +17,9 @@ export const Header = () => {
       px="6"
       align="center"
     >
-      <Text
-        fontSize="3xl"
-        fontWeight="bold"
-        letterSpacing="tight"
-        w="64"
-      >
+      <Text fontSize="3xl" fontWeight="bold" letterSpacing="tight" w="64">
         dashgo
-        <Text
-          as="span"
-          color="pink.500"
-          ml={1}
-        >
+        <Text as="span" color="pink.500" ml={1}>
           .
         </Text>
       </Text>
@@ -55,16 +46,10 @@ export const Header = () => {
           _placeholder={{ color: 'gray.400' }}
         />
 
-        <Icon
-          as={RiSearchLine}
-          fontSize="20"
-        />
+        <Icon as={RiSearchLine} fontSize="20" />
       </Flex>
 
-      <Flex
-        align="center"
-        ml="auto"
-      >
+      <Flex align="center" ml="auto">
         <HStack
           spacing="8"
           mx="8"
@@ -74,26 +59,14 @@ export const Header = () => {
           borderRightWidth={1}
           borderColor="gray.700"
         >
-          <Icon
-            as={RiNotificationLine}
-            fontSize="20"
-          />
-          <Icon
-            as={RiUserAddLine}
-            fontSize="20"
-          />
+          <Icon as={RiNotificationLine} fontSize="20" />
+          <Icon as={RiUserAddLine} fontSize="20" />
         </HStack>
 
         <Flex align="center">
-          <Box
-            mr="4"
-            textAlign="right"
-          >
+          <Box mr="4" textAlign="right">
             <Text>Gabriel Borel</Text>
-            <Text
-              color="gray.300"
-              fontSize="sm"
-            >
+            <Text color="gray.300" fontSize="sm">
               biel_borel@hotmail.com
             </Text>
           </Box>
