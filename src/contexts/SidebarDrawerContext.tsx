@@ -1,4 +1,8 @@
-import { useDisclosure, UseDisclosureReturn } from '@chakra-ui/react';
+import {
+  useBreakpointValue,
+  useDisclosure,
+  UseDisclosureReturn,
+} from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { createContext, ReactNode, useContext, useEffect } from 'react';
 
@@ -14,10 +18,16 @@ SidebarDrawerContext.displayName = 'SidebarDrawerContext';
 export const SidebarDrawerProvider = ({
   children,
 }: SidebarDrawerContextProps) => {
+  const isWideVersion = useBreakpointValue({
+    base: true,
+    lg: false,
+  });
   const disclosure = useDisclosure();
   const router = useRouter();
 
-  useEffect(() => disclosure.onClose(), [router.asPath]);
+  useEffect(() => {
+    if (isWideVersion) disclosure.onClose();
+  }, [router.asPath]);
 
   return (
     <SidebarDrawerContext.Provider value={disclosure}>
