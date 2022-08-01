@@ -1,5 +1,7 @@
 import { Box, Flex, SimpleGrid, Text, theme } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { Header } from '../components/Header';
 import { Sidebar } from '../components/Sidebar';
@@ -69,41 +71,33 @@ export default function Dashboard() {
   useEffect(() => setShowChart(true), []);
 
   return (
-    <Flex direction="column" h="100vh">
+    <Flex
+      as={motion.div}
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
+      exit={{ opacity: 0, y: 20 }}
+      direction='column'
+      h='100vh'
+    >
       <Header />
 
-      <Flex w="100%" my="6" maxWidth={1300} mx="auto" px="6">
+      <Flex w='100%' my='6' maxWidth={1300} mx='auto' px='6'>
         <Sidebar />
 
         {showChart && (
-          <SimpleGrid
-            flex="1"
-            gap="4"
-            minChildWidth="320px"
-            alignItems="flex-start"
-          >
-            <Box p={['6', '8']} bg="gray.800" borderRadius={8} pb={4}>
-              <Text fontSize="lg" mb="4">
+          <SimpleGrid flex='1' gap='4' minChildWidth='320px' alignItems='flex-start'>
+            <Box p={['6', '8']} bg='gray.800' borderRadius={8} pb={4}>
+              <Text fontSize='lg' mb='4'>
                 Inscritos da semana
               </Text>
-              <Chart
-                options={options}
-                series={series}
-                type="area"
-                height={160}
-              />
+              <Chart options={options} series={series} type='area' height={160} />
             </Box>
 
-            <Box p={['6', '8']} bg="gray.800" borderRadius={8} pb={4}>
-              <Text fontSize="lg" mb="4">
+            <Box p={['6', '8']} bg='gray.800' borderRadius={8} pb={4}>
+              <Text fontSize='lg' mb='4'>
                 Taxa de abertura
               </Text>
-              <Chart
-                options={options}
-                series={series}
-                type="area"
-                height={160}
-              />
+              <Chart options={options} series={series} type='area' height={160} />
             </Box>
           </SimpleGrid>
         )}
